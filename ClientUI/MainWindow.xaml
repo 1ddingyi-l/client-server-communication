@@ -8,33 +8,37 @@
         WindowStyle="ToolWindow"
         Closing="WindowClose"
         Title="ClientsConsole"
-        Height="530.766" Width="1000">
-    <Grid>
-        <ListView Panel.ZIndex="1" Name="listv" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="21" FontFamily="Times new roman" HorizontalAlignment="Left" Height="432" Margin="48,43,0,0" VerticalAlignment="Top" Width="592">
-            <ListView.View>
-                <GridView>
-                    <GridViewColumn Width="185" Header="LocalEndPoint" DisplayMemberBinding="{Binding ClientLocalEndPoint}"/>
-                    <GridViewColumn Width="190" Header="RemoteEndPoint" DisplayMemberBinding="{Binding ClientRemoteEndPoint}"/>
-                    <GridViewColumn Width="190" Header="ConnectingTime" DisplayMemberBinding="{Binding ClientConnectingTime}"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-        <ScrollViewer Height="110" Width="220" Panel.ZIndex="1" ScrollViewer.HorizontalScrollBarVisibility="Auto" ScrollViewer.VerticalScrollBarVisibility="Auto" Margin="692,90,66.6,265.6">
-            <TextBlock Name="tblock" TextAlignment="Center" FontSize="21" FontFamily="Times new roman" Foreground="#3C6368" HorizontalAlignment="Left" TextWrapping="WrapWithOverflow" VerticalAlignment="Top" Height="auto" Width="235"/>
-        </ScrollViewer>
-        <TextBox Panel.ZIndex="1" Name="tboxMessage" InputMethod.IsInputMethodEnabled="False" FontSize="21" FontFamily="Times new roman" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="44" Margin="692,241,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="130"/>
-        <Button Panel.ZIndex="1" Click="SendingToServer" Name="btnSend" FontSize="21" FontFamily="Times new roman" Content="Send" HorizontalAlignment="Left" Margin="827,241,0,0" VerticalAlignment="Top" Width="100" Height="44"/>
-        <TextBox Text="127.0.0.1:6000" Panel.ZIndex="1" Name="tboxEndPoint" InputMethod.IsInputMethodEnabled="False" FontSize="21" FontFamily="Times new roman" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="48" Margin="692,368,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
-        <Label Panel.ZIndex="1" FontSize="21" FontFamily="Times new roman" VerticalContentAlignment="Bottom" Content="From the server:" HorizontalAlignment="Left" Margin="692,55,0,0" VerticalAlignment="Top" Height="30" Width="235"/>
-        <Label Panel.ZIndex="1" FontSize="21" FontFamily="Times new roman" VerticalContentAlignment="Center" Content="Targer EndPoint:" HorizontalAlignment="Left" Margin="692,329,0,0" VerticalAlignment="Top" Width="235" Height="39"/>
-        <Button Panel.ZIndex="1" Click="CloseConnection" Name="btnDisconnect" FontSize="21" FontFamily="Times new roman" Content="Disconnect" HorizontalAlignment="Left" Margin="692,421,0,0" VerticalAlignment="Top" Width="130" Height="44"/>
-        <Button Panel.ZIndex="1" Click="AddConnection" Name="btnConnect" FontSize="21" FontFamily="Times new roman" Content="Connect" HorizontalAlignment="Left" Margin="827,421,0,0" VerticalAlignment="Top" Width="100" Height="44"/>
-        <GroupBox Panel.ZIndex="0" Header="Communication" FontSize="16" FontFamily="Times new roman" Height="269" VerticalAlignment="Top" Margin="666,30,47.6,0"/>
-        <GroupBox Panel.ZIndex="0" Header="Connection" FontSize="16" FontFamily="Times new roman" Height="171" VerticalAlignment="Top" Margin="666,304,47.6,0"/>
-        <DockPanel>
-            <Menu DockPanel.Dock="Top" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0">
-                <MenuItem Header="Query" Click="CreateQueryWindow" FontSize="16" FontFamily="Times new roman" Height="24"/>
-            </Menu>
-        </DockPanel>
-    </Grid>
+        Height="657.966" Width="1236.8">
+	<Grid>
+		<ListView Panel.ZIndex="1" Name="listv" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontSize="21" FontFamily="Times new roman" HorizontalAlignment="Left" Height="413" Margin="48,172,0,0" VerticalAlignment="Top" Width="579">
+			<ListView.View>
+				<GridView>
+					<GridViewColumn Width="185" Header="LocalEndPoint" DisplayMemberBinding="{Binding ClientLocalEndPoint}"/>
+					<GridViewColumn Width="190" Header="RemoteEndPoint" DisplayMemberBinding="{Binding ClientRemoteEndPoint}"/>
+					<GridViewColumn Width="190" Header="ConnectingTime" DisplayMemberBinding="{Binding ClientConnectingTime}"/>
+				</GridView>
+			</ListView.View>
+		</ListView>
+		<!--<ScrollViewer Panel.ZIndex="1" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Margin="692,102,67.4,92.8">
+			-->
+		<!--<TextBlock Height="10000" Margin="0, 0, 0, 20" Name="tblock" FontSize="16" FontFamily="Times new roman" Foreground="#3C6368" TextWrapping="Wrap"/>-->
+		<!--
+			
+		</ScrollViewer>-->
+		<TextBox Name="tblock" VerticalScrollBarVisibility="Visible" HorizontalScrollBarVisibility="Visible" FontSize="16" FontFamily="Times new roman" Foreground="#3C6368" MaxLength="0" TextWrapping="Wrap" Margin="692,90,67.4,113.8" />
+		<TextBox Panel.ZIndex="1" Name="tboxMessage" InputMethod.IsInputMethodEnabled="False" FontSize="21" FontFamily="Times new roman" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="44" Margin="666,541,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="326"/>
+		<Button Panel.ZIndex="1" Click="SendingToServer" Name="btnSend" FontSize="21" FontFamily="Times new roman" Content="Send" HorizontalAlignment="Left" Margin="997,541,0,0" VerticalAlignment="Top" Width="186" Height="44"/>
+		<TextBox Text="127.0.0.1:6000" Panel.ZIndex="1" Name="tboxEndPoint" InputMethod.IsInputMethodEnabled="False" FontSize="21" FontFamily="Times new roman" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" Height="48" Margin="76,102,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="235"/>
+		<Label Panel.ZIndex="1" FontSize="21" FontFamily="Times new roman" VerticalContentAlignment="Bottom" Content="From the server:" HorizontalAlignment="Left" Margin="692,55,0,0" VerticalAlignment="Top" Height="30" Width="235"/>
+		<Label Panel.ZIndex="1" FontSize="21" FontFamily="Times new roman" VerticalContentAlignment="Center" Content="Targer EndPoint:" HorizontalAlignment="Left" Margin="76,55,0,0" VerticalAlignment="Top" Width="235" Height="39"/>
+		<Button Panel.ZIndex="1" Click="CloseConnection" Name="btnDisconnect" FontSize="21" FontFamily="Times new roman" Content="Disconnect" HorizontalAlignment="Left" Margin="479,102,0,0" VerticalAlignment="Top" Width="110" Height="48"/>
+		<Button Panel.ZIndex="1" Click="AddConnection" Name="btnConnect" FontSize="21" FontFamily="Times new roman" Content="Connect" HorizontalAlignment="Left" Margin="349,102,0,0" VerticalAlignment="Top" Width="100" Height="48"/>
+		<GroupBox Panel.ZIndex="0" Header="Communication" FontSize="16" FontFamily="Times new roman" Height="506" VerticalAlignment="Top" Margin="666,30,47.4,0"/>
+		<GroupBox Panel.ZIndex="0" Header="Connection" FontSize="16" FontFamily="Times new roman" Height="131" VerticalAlignment="Top" Margin="48,30,603.4,0"/>
+		<DockPanel>
+			<Menu DockPanel.Dock="Top" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="994" Margin="0,0,-0.4,0">
+				<MenuItem Header="Query" Click="CreateQueryWindow" FontSize="16" FontFamily="Times new roman" Height="24"/>
+			</Menu>
+		</DockPanel>
+	</Grid>
 </Window>

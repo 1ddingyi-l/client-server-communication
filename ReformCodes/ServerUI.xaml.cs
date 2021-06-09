@@ -33,7 +33,9 @@ namespace ReformCodes
                         clientListView.Items.Add(new ClientItemInformation(client, null, ServersManager[server].Clients[client].ConnectingTime));
                 }
                 else
+                {
                     clientListView.Items.Clear();
+                }
             });
         }
 
@@ -43,7 +45,9 @@ namespace ReformCodes
             {
                 serverListView.Items.Clear();  // Clear original data.
                 foreach (string server in ServersManager.GetServers())
+                {
                     serverListView.Items.Add(new ServerItemInformation(server, ServersManager[server].StartedTime.ToString()));
+                }
             });
         }
 
@@ -61,6 +65,7 @@ namespace ReformCodes
         public void AddServer(object sender, EventArgs e)
         {
             if (int.TryParse(tboxServerPort.Text, out int port))
+            {
                 try
                 {
                     ServersManager.ServerAddedAndStarting(new MyProtocol(), new IPEndPoint(IPAddress.Any, port));
@@ -68,10 +73,15 @@ namespace ReformCodes
                 catch (SocketException er)
                 {
                     if (er.ErrorCode == 10048)
+                    {
                         MessageNotifyer.ShowError("Current port have been used! Please use another port.");
+                    }
                 }
+            }
             else
+            {
                 MessageNotifyer.ShowError("The port is invalid!");
+            }
         }
 
         public void RemoveServer(object sender, EventArgs e)
@@ -99,9 +109,13 @@ namespace ReformCodes
         public void Update(object state)
         {
             if (state == null)  // From ServersManager.
+            {
                 UpdateServerUI();  // Updating the server ui at first.
+            }
             else  // From Server.
+            {
                 UpdateClientUI();
+            }
         }
     }
 }

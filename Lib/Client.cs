@@ -61,7 +61,7 @@ namespace Lib
 
         public string SendAndReceiveOnce(string message)
         {
-            byte[] receivedBuffer = new byte[1024];
+            byte[] receivedBuffer = new byte[4096];
 
             try
             {

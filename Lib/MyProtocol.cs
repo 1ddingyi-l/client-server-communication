@@ -35,7 +35,7 @@ namespace Lib
                     process.StandardInput.WriteLine(cmd + " & exit");
                     process.StandardInput.AutoFlush = true;
                     string result = process.StandardOutput.ReadToEnd();
-                    process.WaitForExit(2000);
+                    process.WaitForExit();
                     return result;
                 }
                 else if (int.TryParse(content, out int num))

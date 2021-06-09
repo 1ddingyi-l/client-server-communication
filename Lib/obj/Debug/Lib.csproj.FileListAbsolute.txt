@@ -24,4 +24,3 @@ E:\csharp\client-server-communication\Lib\bin\Debug\Lib.pdb
 E:\csharp\client-server-communication\Lib\obj\Debug\Lib.csproj.CoreCompileInputs.cache
 E:\csharp\client-server-communication\Lib\obj\Debug\Lib.dll
 E:\csharp\client-server-communication\Lib\obj\Debug\Lib.pdb
-E:\csharp\client-server-communication\Lib\obj\Debug\Lib.csproj.AssemblyReference.cache

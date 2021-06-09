@@ -1,0 +1,29 @@
+﻿<Window x:Class="ClientUI.Query"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+        WindowStyle="ToolWindow"
+        ResizeMode="NoResize"
+        Title="Query" Height="464.929" Width="923.697">
+    <Grid>
+        <GroupBox Panel.ZIndex="0" Header="Query Result" FontFamily="Times new roman" FontSize="16" HorizontalAlignment="Left" Height="401" Margin="10,10,0,0" VerticalAlignment="Top" Width="617">
+            <DataGrid Name="result" HorizontalAlignment="Left" Height="361" VerticalAlignment="Top" Width="585" Margin="10,10,0,0"/>
+        </GroupBox>
+        <DatePicker Name="dpBeginTime" Panel.ZIndex="1" Text="BeginTime" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="21" FontFamily="Times new roman" HorizontalAlignment="Left" Margin="661,167,0,0" VerticalAlignment="Top" Height="33" Width="211"/>
+        <Label Panel.ZIndex="1" FontSize="16" FontFamily="Times new roman" Content="BeginTime:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="661,126,0,0" Width="211"/>
+        <Label Panel.ZIndex="1" Content="End time:" FontFamily="Times new roman" FontSize="16" HorizontalAlignment="Left" Margin="661,220,0,0" VerticalAlignment="Top" Width="211"/>
+        <DatePicker Name="dpEndTime" Panel.ZIndex="1" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontFamily="Times new roman" FontSize="21" HorizontalAlignment="Left" Margin="661,249,0,0" VerticalAlignment="Top" Width="211" Height="33"/>
+        <Button Click="QueryEvent" Panel.ZIndex="1" FontSize="21" FontFamily="Times new roman" Name="btnQuery" Content="Query" HorizontalAlignment="Left" Margin="661,312,0,0" VerticalAlignment="Top" Width="211" Height="41"/>
+        <ComboBox Panel.ZIndex="1" FontFamily="Times new roman" FontSize="16" Name="combo" HorizontalAlignment="Left" Margin="661,87,0,0" VerticalAlignment="Top" Width="211" Height="25">
+            <ComboBoxItem>Messages</ComboBoxItem>
+            <ComboBoxItem>Connections</ComboBoxItem>
+        </ComboBox>
+        <Label Content="Select the query data table:" FontSize="16" FontFamily="Times new roman" HorizontalAlignment="Left" Margin="661,41,0,0" VerticalAlignment="Top" Width="211"/>
+        <GroupBox Panel.ZIndex="0" Header="Filter" FontFamily="Times new roman" FontSize="16" HorizontalAlignment="Left" Height="397" Margin="632,14,0,0" VerticalAlignment="Top" Width="267">
+
+
+        </GroupBox>
+    </Grid>
+</Window>

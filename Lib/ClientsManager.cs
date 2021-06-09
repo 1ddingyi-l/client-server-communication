@@ -52,7 +52,7 @@ namespace Lib
         {
             string remoteEndPoint = Clients[localEndPoint].Item1.RemoteEndPoint.ToString();
             string receivedMessage = Clients[localEndPoint].Item1.SendAndReceiveOnce(message);
-            Clients[localEndPoint].Item2.InsertRows(localEndPoint, remoteEndPoint, message, receivedMessage);
+            // Clients[localEndPoint].Item2.InsertRows(localEndPoint, remoteEndPoint, message, receivedMessage);
             return receivedMessage;
         }
 

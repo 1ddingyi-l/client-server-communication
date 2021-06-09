@@ -79,8 +79,7 @@ namespace ClientUI
             }
             catch (SocketException er)
             {
-                if (er.ErrorCode == 10061)
-                    MessageNotifyer.ShowError("The server does not exist!");
+                MessageNotifyer.ShowError(er.Message);
             }
         }
 
